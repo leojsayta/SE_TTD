@@ -18,10 +18,10 @@ public class SimpleStringTest {
 		ss = new SimpleString(this.charArray);
 	}
 	
-//	@Test
-//	public void testGetStringChars(){
-//		assertEquals(ss.getStringChars(), this.charArray);
-//	}
+	@Test
+	public void testGetStringChars(){
+		assertArrayEquals(ss.getStringChars(), charArray);
+	}
 
 	@Test
 	public void testSimpleString() {
@@ -29,11 +29,11 @@ public class SimpleStringTest {
 		assertArrayEquals(ss.getStringChars(), charArray);
 	}
 
-//	@Test
-//	public void testCharAt() {
-//		fail("Not yet implemented"); // TODO
-//	}
-//
+	@Test
+	public void testCharAt() {
+		assertEquals(ss.charAt(4), 'e');
+	}
+
 //	@Test
 //	public void testContains() {
 //		fail("Not yet implemented"); // TODO

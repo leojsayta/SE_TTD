@@ -34,16 +34,18 @@ public class SimpleStringTest {
 		assertEquals(ss.charAt(4), 'e');
 	}
 
-//	@Test
-//	public void testContains() {
-//		fail("Not yet implemented"); // TODO
-//	}
-//
-//	@Test
-//	public void testIndexOf() {
-//		fail("Not yet implemented"); // TODO
-//	}
-//
+	@Test
+	public void testContains() {
+		assertTrue(ss.contains('c'));
+		assertFalse(ss.contains('5'));
+	}
+
+	@Test
+	public void testIndexOf() {
+		assertEquals(5, ss.indexOf('f'));
+		assertEquals(-1, ss.indexOf('7'));
+	}
+
 //	@Test
 //	public void testIsEmpty() {
 //		fail("Not yet implemented"); // TODO

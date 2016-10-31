@@ -41,11 +41,11 @@ public class SimpleString {
 	}
 	
 	public boolean contains(char c){
-		throw new UnsupportedOperationException(NOT_IMPLEMENTED_ERROR);
+		return getCharContents().contains(Character.valueOf(c));
 	}
 	
 	public int indexOf(char c){
-		throw new UnsupportedOperationException(NOT_IMPLEMENTED_ERROR);
+		return getCharContents().indexOf(Character.valueOf(c));
 	}
 	
 	public boolean isEmpty(){

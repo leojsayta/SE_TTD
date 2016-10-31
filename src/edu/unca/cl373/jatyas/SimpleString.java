@@ -72,7 +72,7 @@ public class SimpleString {
 	}
 	
 	public SimpleString subString(int startIndex, int endIndex){
-		throw new UnsupportedOperationException(NOT_IMPLEMENTED_ERROR);
+		return new SimpleString(toCharArray(getCharacterList().subList(startIndex, endIndex)));
 	}
 
 	@Override

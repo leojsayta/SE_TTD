@@ -9,11 +9,13 @@ public class SimpleStringTest {
 	private char[] cArray2 = new char[0];
 	private char[] cArray3 = {'x','y','z','8','9','0'};
 	private char[] cArray4 = {'a','b','c','d','e','f','1','2','3','4','x','y','z','8','9','0'};
+	private char[] cArray5 = {'e','f','1','2'};
 	private SimpleString ss1a;
 	private SimpleString ss1b;
 	private SimpleString ss2;
 	private SimpleString ss3;
 	private SimpleString ss4;
+	private SimpleString ss5;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -27,22 +29,23 @@ public class SimpleStringTest {
 		ss2 = new SimpleString(cArray2);
 		ss3 = new SimpleString(cArray3);
 		ss4 = new SimpleString(cArray4);
+		ss5 = new SimpleString(cArray5);
 	}
 	
 	@Test
 	public void testGetStringChars(){
-		assertArrayEquals(ss1a.getStringChars(), cArray1);
+		assertArrayEquals(cArray1, ss1a.getStringChars());
 	}
 
 	@Test
 	public void testSimpleString() {
 		assertNotNull(ss1a.getCharacterList());
-		assertArrayEquals(ss1a.getStringChars(), cArray1);
+		assertArrayEquals(cArray1, ss1a.getStringChars());
 	}
 
 	@Test
 	public void testCharAt() {
-		assertEquals(ss1a.charAt(4), 'e');
+		assertEquals('e', ss1a.charAt(4));
 	}
 
 	@Test
@@ -65,30 +68,35 @@ public class SimpleStringTest {
 
 	@Test
 	public void testLength() {
-		assertEquals(ss1a.length(), this.cArray1.length);
-		assertEquals(ss2.length(), 0);
+		assertEquals(cArray1.length, ss1a.length());
+		assertEquals(0, ss2.length());
+	}
+
+	@Test	
+	public void testConcat() {
+		assertArrayEquals(cArray4, (ss1a.concat(ss3)).getStringChars());
+		assertArrayEquals(cArray1, (ss1b.concat(ss2)).getStringChars());
 	}
 
 	@Test
-	public void testConcat() {
-		assertArrayEquals((ss1a.concat(ss3)).getStringChars(), cArray4);
-		assertArrayEquals((ss1b.concat(ss2)).getStringChars(), cArray1);
+	public void testSubString() {
+		assertArrayEquals(cArray5, ss4.subString(4, 8).getStringChars());
+		assertArrayEquals(cArray1, ss4.subString(0, 10).getStringChars());
 	}
 
-//	@Test
-//	public void testSubString() {
-//		fail("Not yet implemented"); // TODO
-//	}
-//
-//	@Test
-//	public void testEqualsObject() {
-//		fail("Not yet implemented"); // TODO
-//	}
+	@Test
+	public void testEqualsObject() {
+		assertNotEquals(null, ss1a);
+		assertEquals(ss1a, ss1b);
+		assertNotEquals(ss1a, ss2);
+		assertNotEquals(ss1a, ss4);
+		assertNotEquals(ss4, ss5);
+	}
 	
-//	@Test
-//	public void testHashCode() {
-//		
-//	}
-
+	@Test
+	public void testHashCode() {
+		assertEquals(ss1a.hashCode(), ss1b.hashCode());
+		assertNotEquals(ss3.hashCode(), ss4.hashCode());
+	}
 
 }

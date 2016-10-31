@@ -16,6 +16,18 @@ public class SimpleString {
 		return charContents;
 	}
 
+	public char[] getStringChars() {
+		if (this.charContents != null) {
+			char[] cArray = new char[this.charContents.size()];
+			for (int i = 0; i < this.charContents.size(); i++) {
+				cArray[i] = this.charContents.get(i);
+			}
+			return cArray;
+		}
+		else
+			return new char[0];
+	}
+
 	private List<Character> toCharacterList(char[] letters){
 		throw new UnsupportedOperationException(NOT_IMPLEMENTED_ERROR);
 	}

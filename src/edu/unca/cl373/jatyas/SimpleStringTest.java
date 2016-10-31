@@ -4,27 +4,30 @@ import static org.junit.Assert.*;
 import org.junit.*;
 
 public class SimpleStringTest {
+	
+	private char[] charArray = {'a','b','c','d','e','f','1','2','3','4'};
+	private SimpleString ss;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		
 	}
 
 	@Before
 	public void setUp() throws Exception {
-		char[] arr = {'a','b','c','d','e','f','1','2','3','4'};
-		SimpleString ss = new SimpleString(arr);
+		ss = new SimpleString(this.charArray);
 	}
+	
+//	@Test
+//	public void testGetStringChars(){
+//		assertEquals(ss.getStringChars(), this.charArray);
+//	}
 
 	@Test
-	public void testHashCode() {
-		
+	public void testSimpleString() {
+		assertNotNull(ss.getCharContents());
 	}
 
-//	@Test
-//	public void testSimpleString() {
-//		fail("Not yet implemented"); // TODO
-//	}
-//
 //	@Test
 //	public void testCharAt() {
 //		fail("Not yet implemented"); // TODO
@@ -64,5 +67,11 @@ public class SimpleStringTest {
 //	public void testEqualsObject() {
 //		fail("Not yet implemented"); // TODO
 //	}
+	
+//	@Test
+//	public void testHashCode() {
+//		
+//	}
+
 
 }

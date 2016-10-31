@@ -21,14 +21,14 @@ public class SimpleString {
 	}
 	
 	public List<Character> getCharContents() {
-		return charContents;
+		return this.charContents;
 	}
 
 	public char[] getStringChars() {
 		if (this.charContents != null) {
-			char[] cArray = new char[this.charContents.size()];
-			for (int i = 0; i < this.charContents.size(); i++) {
-				cArray[i] = this.charContents.get(i);
+			char[] cArray = new char[getCharContents().size()];
+			for (int i = 0; i < getCharContents().size(); i++) {
+				cArray[i] = getCharContents().get(i);
 			}
 			return cArray;
 		}
@@ -37,7 +37,7 @@ public class SimpleString {
 	}
 
 	public char charAt(int index){
-		throw new UnsupportedOperationException(NOT_IMPLEMENTED_ERROR);
+		return getCharContents().get(index).charValue();
 	}
 	
 	public boolean contains(char c){

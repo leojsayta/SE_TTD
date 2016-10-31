@@ -26,6 +26,7 @@ public class SimpleStringTest {
 	@Test
 	public void testSimpleString() {
 		assertNotNull(ss.getCharContents());
+		assertArrayEquals(ss.getStringChars(), charArray);
 	}
 
 //	@Test

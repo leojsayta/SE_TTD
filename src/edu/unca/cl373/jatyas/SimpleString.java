@@ -9,7 +9,7 @@ public class SimpleString {
 	List<Character> charContents;
 	
 	public SimpleString(char[] letters) {
-		
+		this.charContents = new ArrayList<>(letters.length);
 	}
 	
 	public List<Character> getCharContents() {

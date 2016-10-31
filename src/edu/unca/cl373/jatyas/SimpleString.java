@@ -9,7 +9,15 @@ public class SimpleString {
 	List<Character> charContents;
 	
 	public SimpleString(char[] letters) {
-		this.charContents = new ArrayList<>(letters.length);
+		this.charContents = toCharacterList(letters);
+	}
+	
+	private List<Character> toCharacterList(char[] letters){
+		ArrayList<Character> l = new ArrayList<>(letters.length);
+		for (int i = 0; i < letters.length; i++) {
+			l.add(letters[i]);
+		}
+		return l;
 	}
 	
 	public List<Character> getCharContents() {
@@ -28,10 +36,6 @@ public class SimpleString {
 			return new char[0];
 	}
 
-	private List<Character> toCharacterList(char[] letters){
-		throw new UnsupportedOperationException(NOT_IMPLEMENTED_ERROR);
-	}
-	
 	public char charAt(int index){
 		throw new UnsupportedOperationException(NOT_IMPLEMENTED_ERROR);
 	}

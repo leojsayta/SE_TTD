@@ -11,6 +11,10 @@ public class SimpleString {
 	public SimpleString(char[] letters) {
 		
 	}
+	
+	public List<Character> getCharContents() {
+		return charContents;
+	}
 
 	private List<Character> toCharacterList(char[] letters){
 		throw new UnsupportedOperationException(NOT_IMPLEMENTED_ERROR);

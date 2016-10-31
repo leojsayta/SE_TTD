@@ -6,10 +6,10 @@ public class SimpleString {
 	
 	static final String NOT_IMPLEMENTED_ERROR = "This function is not yet implemented.";
 
-	List<Character> charContents;
+	List<Character> characterList;
 	
 	public SimpleString(char[] letters) {
-		this.charContents = toCharacterList(letters);
+		this.characterList = toCharacterList(letters);
 	}
 	
 	private List<Character> toCharacterList(char[] letters){
@@ -20,15 +20,23 @@ public class SimpleString {
 		return l;
 	}
 	
-	public List<Character> getCharContents() {
-		return this.charContents;
+	private char[] toCharArray(List<Character> cList){
+		char[] cArr = new char[cList.size()];
+		for (int i = 0; i < cList.size(); i++) {
+			cArr[i] = cList.get(i).charValue();
+		}
+		return cArr;
+	}
+	
+	protected List<Character> getCharacterList() {
+		return this.characterList;
 	}
 
 	public char[] getStringChars() {
-		if (this.charContents != null) {
-			char[] cArray = new char[getCharContents().size()];
-			for (int i = 0; i < getCharContents().size(); i++) {
-				cArray[i] = getCharContents().get(i);
+		if (this.characterList != null) {
+			char[] cArray = new char[getCharacterList().size()];
+			for (int i = 0; i < getCharacterList().size(); i++) {
+				cArray[i] = getCharacterList().get(i);
 			}
 			return cArray;
 		}
@@ -37,27 +45,30 @@ public class SimpleString {
 	}
 
 	public char charAt(int index){
-		return getCharContents().get(index).charValue();
+		return getCharacterList().get(index).charValue();
 	}
 	
 	public boolean contains(char c){
-		return getCharContents().contains(Character.valueOf(c));
+		return getCharacterList().contains(Character.valueOf(c));
 	}
 	
 	public int indexOf(char c){
-		return getCharContents().indexOf(Character.valueOf(c));
+		return getCharacterList().indexOf(Character.valueOf(c));
 	}
 	
 	public boolean isEmpty(){
-		throw new UnsupportedOperationException(NOT_IMPLEMENTED_ERROR);
+		return getCharacterList().isEmpty();
 	}
 	
 	public int length(){
-		throw new UnsupportedOperationException(NOT_IMPLEMENTED_ERROR);
+		return getCharacterList().size();
 	}
 	
 	public SimpleString concat(SimpleString s){
-		throw new UnsupportedOperationException(NOT_IMPLEMENTED_ERROR);
+		List<Character> lc = getCharacterList();
+		lc.addAll(s.getCharacterList());
+		char[] cArr = toCharArray(lc);
+		return new SimpleString(cArr);
 	}
 	
 	public SimpleString subString(int startIndex, int endIndex){
@@ -68,7 +79,7 @@ public class SimpleString {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((charContents == null) ? 0 : charContents.hashCode());
+		result = prime * result + ((characterList == null) ? 0 : characterList.hashCode());
 		return result;
 	}
 
@@ -84,11 +95,11 @@ public class SimpleString {
 			return false;
 		}
 		SimpleString other = (SimpleString) obj;
-		if (charContents == null) {
-			if (other.charContents != null) {
+		if (characterList == null) {
+			if (other.characterList != null) {
 				return false;
 			}
-		} else if (!charContents.equals(other.charContents)) {
+		} else if (!characterList.equals(other.characterList)) {
 			return false;
 		}
 		return true;
